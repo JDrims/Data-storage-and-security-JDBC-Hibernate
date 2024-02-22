@@ -9,17 +9,16 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Contact implements Serializable {
-    @Column(nullable = false, length = 20)
+    @Column(name = "name", nullable = false, length = 20)
     private String name;
-    @Column(nullable = false, length = 30)
+    @Column(name = "surname", nullable = false, length = 30)
     private String surname;
-    @Column(nullable = false, length = 3)
+    @Column(name = "age", nullable = false)
     private int age;
 }

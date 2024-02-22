@@ -1,6 +1,5 @@
 package com.example.Hibernate.entity;
 
-import com.example.Hibernate.entity.Contact;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
