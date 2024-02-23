@@ -1,22 +1,17 @@
 package com.example.Hibernate.repository;
 
+import com.example.Hibernate.entity.Contact;
 import com.example.Hibernate.entity.Person;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-@AllArgsConstructor
 @org.springframework.stereotype.Repository
-public class Repository {
-    @PersistenceContext
-    private EntityManager entityManager;
+public interface Repository extends JpaRepository<Person, Contact> {
+    List<Person> findPersonByCityOfLiving(String city);
 
-    public List<Person> getPersonByCity(String city) {
-        return entityManager
-                .createQuery("SELECT * FROM persons WHERE city_of_living = :city")
-                .setParameter("city", city)
-                .getResultList();
-    }
+    List<Person> findPersonByContact_AgeBeforeOrderByContact_AgeAsc(Integer age);
+
+    Optional<Person> findPersonByContact_NameContainingIgnoreCaseAndContact_SurnameContainingIgnoreCase(String name, String surname);
 }
