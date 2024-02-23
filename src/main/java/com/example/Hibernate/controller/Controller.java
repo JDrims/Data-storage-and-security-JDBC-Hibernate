@@ -16,17 +16,17 @@ public class Controller {
     private final Repository repository;
 
     @GetMapping("/persons/by-city")
-    public List<Person> findPersonByCityOfLiving(@RequestParam(value = "city", required = false) String city) {
-        return repository.findPersonByCityOfLiving(city);
+    public List<Person> findPersonByCity(@RequestParam(value = "city", required = false) String city) {
+        return repository.findPersonByCity(city);
     }
 
     @GetMapping("/persons/by-age")
-    public List<Person> findPersonByContact_AgeBeforeOrderByContact_AgeAsc(@RequestParam(value = "age", required = false) Integer age) {
-        return repository.findPersonByContact_AgeBeforeOrderByContact_AgeAsc(age);
+    public List<Person> findPersonByAgeOrderByAgeAsc(@RequestParam(value = "age", required = false) Integer age) {
+        return repository.findPersonByAgeOrderByAgeAsc(age);
     }
 
     @GetMapping("/persons/by-name&surname")
-    public Optional<Person> findPersonByContact_NameContainingIgnoreCaseAndContact_SurnameContainingIgnoreCase(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "surname", required = false) String surname) {
-        return repository.findPersonByContact_NameContainingIgnoreCaseAndContact_SurnameContainingIgnoreCase(name, surname);
+    public Optional<Person> findPersonByNameAndSurnameAllContainingIgnoreCase(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "surname", required = false) String surname) {
+        return repository.findPersonByNameAndSurnameAllContainingIgnoreCase(name, surname);
     }
 }
